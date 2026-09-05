@@ -1,0 +1,27 @@
+[package]
+name = "eror"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bincode = "1.3.3"
+criterion = "0.4.0"
+curve25519-dalek = { version = "4.0.0", features = ["serde", "rand_core", "digest"] }
+hmac = "0.12.1"
+num-derive = "0.3.3"
+num-traits = "0.2.15"
+rand = "0.8.5"
+rand_chacha = "0.3.1"
+serde = { version = "1.0.158", features = ["derive"] }
+sha3 = "0.10.6"
+thiserror = "1.0.40"
+sphinx-packet = { git = "https://github.com/nymtech/sphinx", rev = "ca107d94360cdf8bbfbdb12fe5320ed74f80e40c" }
+serde_arrays = "0.1.0"
+hex = "0.4.3"
+aez = "0.0.7"
+
+[[bench]]
+name = "onions"
+harness = false
