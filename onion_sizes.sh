@@ -4,7 +4,7 @@ set -euo pipefail
 onion_size() {
     path_len=$1
     sed -i "s/pub const MAX_PATH_LENGTH: usize = .\+;/pub const MAX_PATH_LENGTH: usize = $path_len;/" sphinx/src/constants.rs
-    cargo run --example=onion_sizes -- $path_len
+    cargo +nightly run --example=onion_sizes -- $path_len
 }
 
 echo "Path length | Payload size [bytes] | EROR Onion size [bytes] | Sphinx Onion size [bytes]"
