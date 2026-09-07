@@ -29,3 +29,11 @@ Generate graphs:
 ```bash
 jupyter nbconvert --to notebook --execute --inplace --allow-errors Benchmarks.ipynb
 ```
+
+## License
+
+Our code is licensed under the MIT license, see `LICENSE` for more information.
+
+The `sphinx/` directory contains a vendored copy of Nym's Sphinx implementation
+(https://github.com/nymtech/sphinx). It is licensed under the Apache 2 license.
+The original README and LICENSE have been preserved.
