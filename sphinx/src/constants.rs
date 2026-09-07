@@ -17,7 +17,7 @@ use digest::generic_array::typenum::U16;
 use sha2::Sha256;
 
 pub const SECURITY_PARAMETER: usize = 16; // k in the Sphinx paper. Measured in bytes; 128 bits.
-pub const MAX_PATH_LENGTH: usize = 10; // r in the Sphinx paper
+pub const MAX_PATH_LENGTH: usize = 5; // r in the Sphinx paper
 pub const BLINDING_FACTOR_SIZE: usize = 2 * SECURITY_PARAMETER;
 pub const ROUTING_KEYS_LENGTH: usize = crypto::STREAM_CIPHER_KEY_SIZE
     + INTEGRITY_MAC_KEY_SIZE
