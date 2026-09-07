@@ -71,36 +71,28 @@ fn generate_sphinx_onion(path_length: usize, payload_size: usize) -> sphinx_pack
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    println!(
-        "Path length | Payload size [bytes] | EROR Onion size [bytes] | Sphinx Onion size [bytes]"
-    );
-    println!(
-        "============+======================+=========================+=========================="
-    );
-    for path_length in 1..10 {
-        for payload_size in &[0, 128, 256, 512, 1024, 2048, 4096] {
-            let onion = generate_onion(path_length, *payload_size);
-            let serialized = bincode::serialize(&onion)?;
+    let path_length = std::env::args().nth(1).unwrap().parse().unwrap();
+    for payload_size in &[0, 128, 256, 512, 1024, 2048, 4096] {
+        let onion = generate_onion(path_length, *payload_size);
+        let serialized = bincode::serialize(&onion)?;
 
-            let sphinx_size = if usize::try_from(path_length).unwrap() <= sphinx_packet::constants::MAX_PATH_LENGTH {
-                let sphinx_onion = generate_sphinx_onion(
-                    path_length.try_into().unwrap(),
-                    (*payload_size).try_into().unwrap(),
-                );
-                let sphinx_serialized = sphinx_onion.to_bytes();
-                sphinx_serialized.len().to_string()
-            } else {
-                "---".to_string()
-            };
-            println!(
-                "{:<11} | {:<20} | {:<23} | {:<25}",
-                path_length,
-                payload_size,
-                serialized.len(),
-                sphinx_size,
+        let sphinx_size = if usize::try_from(path_length).unwrap() <= sphinx_packet::constants::MAX_PATH_LENGTH {
+            let sphinx_onion = generate_sphinx_onion(
+                path_length.try_into().unwrap(),
+                (*payload_size).try_into().unwrap(),
             );
-        }
-        println!("------------+----------------------+-------------------------+--------------------------");
+            let sphinx_serialized = sphinx_onion.to_bytes();
+            sphinx_serialized.len().to_string()
+        } else {
+            "---".to_string()
+        };
+        println!(
+            "{:<11} | {:<20} | {:<23} | {:<25}",
+            path_length,
+            payload_size,
+            serialized.len(),
+            sphinx_size,
+        );
     }
     Ok(())
 }

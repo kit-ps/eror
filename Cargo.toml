@@ -17,7 +17,7 @@ rand_chacha = "0.3.1"
 serde = { version = "1.0.158", features = ["derive"] }
 sha3 = "0.10.6"
 thiserror = "1.0.40"
-sphinx-packet = { git = "https://github.com/nymtech/sphinx", rev = "ca107d94360cdf8bbfbdb12fe5320ed74f80e40c" }
+sphinx-packet = { path = "sphinx" }
 serde_arrays = "0.1.0"
 hex = "0.4.3"
 aez = "0.0.7"
