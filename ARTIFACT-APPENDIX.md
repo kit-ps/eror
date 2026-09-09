@@ -213,7 +213,7 @@ jupyter notebook --allow-root --ip 0.0.0.0 "Benchmark Graphs.ipynb"
 Or simply generate all graphs with one command:
 
 ```bash
-jupyter nbconvert --to notebook --execute --inplace --allow-errors Benchmarks.ipynb
+jupyter nbconvert --to notebook --execute --inplace --allow-errors "Benchmark Graphs.ipynb"
 ```
 
 ## Limitations

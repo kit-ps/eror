@@ -27,7 +27,7 @@ cargo +nightly criterion
 Generate graphs:
 
 ```bash
-jupyter nbconvert --to notebook --execute --inplace --allow-errors Benchmarks.ipynb
+jupyter nbconvert --to notebook --execute --inplace --allow-errors "Benchmark Graphs.ipynb"
 ```
 
 ## License
