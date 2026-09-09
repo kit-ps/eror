@@ -113,25 +113,21 @@ cargo +nightly test
 ### Main Results and Claims
 
 
-#### Main Result 1: Name
+#### Main Result 1: EROR incurs a linear overhead in onion size
 
-Describe the results in 1 to 3 sentences. Mention what the independent and
-dependent variables are; independent variables are the ones on the x-axes of
-your figures, whereas the dependent ones are on the y-axes. By varying the
-independent variable (e.g., file size) in a given manner (e.g., linearly), we
-expect to see trends in the dependent variable (e.g., runtime, communication
-overhead) vary in another manner (e.g., exponentially). Refer to the related
-sections, figures, and/or tables in your paper and reference the experiments
-that support this result/claim. See example below.
+When increasing either the path length or the payload size, the size of EROR
+onions grows linearly. This is shown in Figure 9, and reproduced by Experiment
+1.
 
-#### Main Result 2: Example Name
 
-Our paper claims that when varying the file size linearly, the runtime also
-increases linearly. This claim is reproducible by executing our
-[Experiment 2](#experiment-2-example-name). In this experiment, we change the
-file size linearly, from 2KB to 24KB, at intervals of 2KB each, and we show that
-the runtime also increases linearly, reaching at most 1ms. We report these
-results in "Figure 1a" and "Table 3" (Column 3 or Row 2) of our paper.
+#### Main Result 2: EROR processes onions fast
+
+Overall, onion operations (creation & processing) take less than 1ms. There is
+a linear increase in processing time when increasing the path length, and a
+very small linear increase when increasing the payload size. Compared to
+Sphinx, EROR onion processing is about twice as fast, but onion creation is 50%
+slower. These results are shown in Figures 7 and 8, and reproduced by
+Experiment 2.
 
 ### Experiments
 
